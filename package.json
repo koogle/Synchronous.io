@@ -1,0 +1,12 @@
+{
+  "name": "synchronous.io",
+  "version": "0.0.1",
+  "description": "Have shared objects between frontend and backend",
+  "license": "MIT",
+  "readme": "README.md",
+  "repository": "",
+  "dependencies": {
+    "express": "^4.10.2",
+    "socket.io": "^1.3.6"
+  }
+}
