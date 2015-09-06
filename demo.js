@@ -22,7 +22,7 @@ function createRandomSuffix(size)
 }
 
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/index.html'));
+    res.sendFile(path.join(__dirname + '/public/demo.html'));
 });
 
 app.use('/static', express.static('public'));
