@@ -7,6 +7,10 @@ var path = require('path');
 
 var dataLayer = new Sync(app, http);
 
+dataLayer.globalspace().setHook('users', function (newValue) {
+  console.info('Logged in users:', newValue);
+})
+
 dataLayer.globalspace().users = 0;
 
 
