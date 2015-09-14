@@ -5,8 +5,11 @@
   <title>Synchronous.io Test</title>
 </head>
 <body>
-  <h1>This is a test</h1>
+  <h1 id="userspace">This is a test</h1>
+  <h2 id="roomspace"></h2>
 
+  <p>Room name:<input id="roomnameinput" type="text" /><button onclick="changeRoom()">Change</button></p>
+  <input type="textarea" id="roomcontent" onchange="updateContent()"/> <button id='updateContent' onclick="updateContent()"> Update Content </button>
   <script src="/socket.io/socket.io.js"></script>
   <script src="/synchronous.io/synchronous.io.js"></script>
   <script src="/static/demo-client.js"></script>
