@@ -2,42 +2,6 @@
 Shared JavaScript objects between client and server
 
 
-## TLDR
-Server:
-```javascript
-var sync = new Sync(app, http);
-sync.globalspace().testValue = 'Hallo';
-```
-
-Client:
-```javascript
-(new Synchronous(io)).whenInit().then(function (syn) {
-  syn.globalspace().testValue += ' World';
-}
-``` 
-
-Server:
-```javascript
-  console.log(syn.globalspace().testValue);
->>>'Hallo World'
-``` 
-Client:
-```javascript
-  console.log(syn.globalspace().testValue);
->>>'Hallo World'
-``` 
-(And of course for every furhter client ...)
-
-Server:
-```javascript
-  console.log(syn.globalspace().testValue);
->>>'Hallo World World World ...'
-``` 
-Client:
-```javascript
-  console.log(syn.globalspace().testValue);
->>>'Hallo World World World ...'
-```
 ### Motivation
 Since **node.js** has become a popular backend for all sorts of web applications over the last couple of years developers are getting used to write their frontend and their backend in one language: _JavaScript_.
 
@@ -111,6 +75,42 @@ Via the `setNamespaceReadonly(name, readonly, silent)` and `setGlobalspaceReadon
 * Allow patch changes
 * Sent only delta changes
 * _Improve performance_
+
+## TLDR
+Server:
+```javascript
+var sync = new Sync(app, http);
+sync.globalspace().testValue = 'Hallo';
+```
+
+Client:
+```javascript
+(new Synchronous(io)).whenInit().then(function (syn) {
+  syn.globalspace().testValue += ' World';
+}
+``` 
+
+Server:
+```javascript
+  console.log(syn.globalspace().testValue);
+>>>'Hallo World'
+``` 
+Client:
+```javascript
+  console.log(syn.globalspace().testValue);
+>>>'Hallo World'
+``` 
+(And of course for every furhter client ...)
+> Server:
+> ```javascript
+  console.log(syn.globalspace().testValue);
+>>>>'Hallo World World World ...'
+``` 
+>Client:
+>```javascript
+  console.log(syn.globalspace().testValue);
+>>>>'Hallo World World World ...'
+```
 
 ### Contribution
 
