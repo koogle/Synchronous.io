@@ -1,13 +1,11 @@
 console.log("Registing new client");
-
-var testBridge  = new Synchronous(io);
-var synObj = null;
+var synObj;
 var currentNamespace = null;
 
-testBridge.whenInit().then(function (syn) {
+(new Synchronous(io)).whenInit().then(function (syn) {
   synObj = syn;
   syn.globalspace().setHook('users', function(newValue) {
-      document.querySelector('h1').innerHTML = newValue + ' users online';
+      document.querySelector('#userspace').innerHTML = newValue + ' user(s) online';
   });
 
   syn.globalspace().users++;
@@ -37,6 +35,7 @@ function changeRoom() {
       });
 
       currentNamespace = n;
+      document.querySelector('#roomspace').innerHTML = n.name;
     });
   }
 }

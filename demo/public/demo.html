@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Synchronous.io Test</title>
+
+  <link href="/static/demo.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+<div class="headerbar">
+  <strong>Welcome to Synchronous.io demo</strong>
+
+  <img src="/static/icon.png" class="icon" alt="Synchronous.io icon"></img>
+</div>
+
+<strong id="userspace" class="statisticbox blue right scroll-fixed">Number of users here</strong>
+
+  <div id="statsbar" class="statisticbox green">
+    <div class="row">
+      <p>Filename: <strong id="roomspace"></strong><p>
+    </div>
+    <div class="row">
+    <textarea id="roomcontent" onkeypress="updateContent()" rows="20" cols="70">
+    </textarea>
+
+    </div>
+    <div class="row">
+      <button onclick="changeRoom()">Change to file:</button><input id="roomnameinput" type="text" />
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/synchronous.io/synchronous.io.js"></script>
+  <script src="/static/demo-client.js"></script>
+</body>
+</html>
