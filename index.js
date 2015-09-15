@@ -4,7 +4,7 @@
  *
  * Idea: Danijar Hafner
  * Implementation: Jakob Frick
- * MIT Licensed
+ * MIT licensed
  */
 
 module.exports = require('./lib/synchronous.io');
