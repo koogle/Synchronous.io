@@ -11,6 +11,8 @@ When we are already using one programming language why do we still have to send 
 
 Checkout the contents of the _demo_ folder to see how to setup a simple multi user file edtior in about 50 lines of JavaScript.
 
+![](https://raw.githubusercontent.com/koogle/Synchronous.io/master/DemoScreenshot.png)
+
 _But wait there is more ..._
 
 ### Build with Socket.io and ES7
