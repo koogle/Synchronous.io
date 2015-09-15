@@ -12,21 +12,32 @@ sync.globalspace().testValue = 'Hallo';
 Client:
 ```javascript
 (new Synchronous(io)).whenInit().then(function (syn) {
-  syn.globalspace().testValue += ' World!';
+  syn.globalspace().testValue += ' World';
 }
 ``` 
 
 Server:
 ```javascript
   console.log(syn.globalspace().testValue);
->>>'Hallo World!'
+>>>'Hallo World'
 ``` 
 Client:
 ```javascript
   console.log(syn.globalspace().testValue);
->>>'Hallo World!'
+>>>'Hallo World'
 ``` 
+(And of course for every furhter client ...)
 
+Server:
+```javascript
+  console.log(syn.globalspace().testValue);
+>>>'Hallo World World World ...'
+``` 
+Client:
+```javascript
+  console.log(syn.globalspace().testValue);
+>>>'Hallo World World World ...'
+```
 ### Motivation
 Since **node.js** has become a popular backend for all sorts of web applications over the last couple of years developers are getting used to write their frontend and their backend in one language: _JavaScript_.
 
@@ -59,6 +70,31 @@ Sychronous.io is build with **io.js** and the awesome work of [Socket.io](http:/
 
 ### Features
 
+###### Globalspace
+Via the `globalspace()` function on server and client side a shared global space for Javascript objects can be accessed.
+
+###### Namespace
+Via the `namespace(name)` function on server and client side a shared namespaces can be accessed. Namespace changes are only published to clients subscribed to this namespace. Furhtermore a client is updated when he accesses a namespace. Via reference counting it is determined when a namespace is deleted.
+
+###### Clientspaces
+Via the `clientspace(clientId)` function on server side a shared space between the server and a client which is exclusive to the client can be accessed. The counterpart on the client is the `personalspace()` function.
+
+###### Hooks
+Via the `setHook(name, function)` and `unsetHook(name)` functions a hook can be set on property of a shared object. This hook is then called as soon as the value of the property changes.
+```javascript
+synObj.connectToNamespace(newRoomName).then(function (n) {
+...
+
+  n.space.setHook('content', function (newContent) {
+    document.querySelector('#roomcontent').value = newContent;
+  });
+
+...
+});
+```
+
+###### Readonly
+Via the `setNamespaceReadonly(name, readonly, silent)` and `setGlobalspaceReadonly(readonly, silent)` functions the server can make _namespaces_ and the _globalspace_ readonly. Then changes by the clients are not accepted. If `silent` is `true` then the clients are not notifed about the readonly change.
 
 
 ### Requirements
