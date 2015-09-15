@@ -4,7 +4,6 @@ var http = require('http').Server(app);
 var Sync = require('./../index');
 var path = require('path');
 
-
 var dataLayer = new Sync(app, http);
 
 dataLayer.globalspace().setHook('users', function (newValue) {
@@ -18,8 +17,6 @@ Object.observe(dataLayer.allNamespaces(), function (changes) {
     }
   });
 });
-
-
 
 dataLayer.globalspace().users = 0;
 
