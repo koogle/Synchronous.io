@@ -7,6 +7,34 @@ Since **node.js** has become a popular backend for all sorts of web applications
 
 When we are already using one programming language why do we still have to send all of our app data back and forth between client and server? Let's have **shared objects**. This is what Synchronous.io is for: it allows you to have shared JavaScript objects between backend and frontend. They are synchronized automatically so don't have to care about that.
 
+### Usage
+
+On the Server side:
+```javascript
+var express = require('express');
+var app = express();
+var http = require('http').Server(app);
+var Synchronous = require('./../index');
+
+var syn = new Synchronous(app, http);
+```
+Now `syn` has all the functions to access shared spaces like `globalspace()`, `namespace(name)` or `clientspace(clientId)` (Detailed later on).
+
+On the client side:
+Add this at the bottom of your HTML:
+```HTML
+<script src="/socket.io/socket.io.js"></script>
+<script src="/synchronous.io/synchronous.io.js"></script>
+```
+and to get a similiar `syn` object just do the following:
+```javascript
+(new Synchronous(io)).whenInit().then(function (syn) {
+...
+}
+```
+Because the client needs to be registerd at the server the return value of `whenInit()` is a [Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+
+
 ### Sample
 
 Checkout the contents of the _demo_ folder to see how to setup a simple multi user file edtior in about 50 lines of JavaScript.
@@ -78,7 +106,7 @@ Via the `setNamespaceReadonly(name, readonly, silent)` and `setGlobalspaceReadon
 * Sent only delta changes
 * _Improve performance_
 
-## TLDR
+## tl;dr
 Server:
 ```javascript
 var sync = new Sync(app, http);
