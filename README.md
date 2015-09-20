@@ -1,6 +1,9 @@
 # Synchronous.io <img src="https://raw.githubusercontent.com/koogle/Synchronous.io/master/demo/public/icon.png" width="80" alt="Synchronous Logo">
 Shared JavaScript objects between client and server
 
+Idea by:           [Danijar Hafner](https://github.com/danijar)
+
+Implementation by: [Jakob Frick](https://github.com/koogle)
 
 ### Motivation
 Since **node.js** has become a popular backend for all sorts of web applications over the last couple of years developers are getting used to write their frontend and their backend in one language: _JavaScript_.
