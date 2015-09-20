@@ -110,7 +110,7 @@ Via the `setNamespaceReadonly(name, readonly, silent)` and `setGlobalspaceReadon
 Server:
 ```javascript
 var sync = new Sync(app, http);
-sync.globalspace().testValue = 'Hallo';
+sync.globalspace().testValue = 'Hello';
 ```
 
 Client:
@@ -123,23 +123,23 @@ Client:
 Server:
 ```javascript
   console.log(syn.globalspace().testValue);
->>>'Hallo World'
+>>>'Hello World'
 ``` 
 Client:
 ```javascript
   console.log(syn.globalspace().testValue);
->>>'Hallo World'
+>>>'Hello World'
 ``` 
 (And of course for every furhter client ...)
 > Server:
 > ```javascript
   console.log(syn.globalspace().testValue);
->>>>'Hallo World World World ...'
+>>>>'Hello World World World ...'
 ``` 
 >Client:
 >```javascript
   console.log(syn.globalspace().testValue);
->>>>'Hallo World World World ...'
+>>>>'Hello World World World ...'
 ```
 
 ### Contribution
