@@ -1,4 +1,7 @@
-# Synchronous.io <img src="https://raw.githubusercontent.com/koogle/Synchronous.io/master/demo/public/icon.png" width="80" alt="Synchronous Logo">
+# Synchronous.io 
+
+<img src="https://raw.githubusercontent.com/koogle/Synchronous.io/master/demo/public/icon.png" width="100" alt="Synchronous Logo">
+
 Shared JavaScript objects between client and server
 
 Idea by:           [Danijar Hafner](https://github.com/danijar)
