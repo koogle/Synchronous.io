@@ -20,7 +20,7 @@ On the Server side:
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
-var Synchronous = require('./../index');
+var Synchronous = require('Synchronous.io');
 
 var syn = new Synchronous(app, http);
 ```
