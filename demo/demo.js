@@ -21,16 +21,7 @@ Object.observe(dataLayer.allNamespaces(), function (changes) {
 dataLayer.globalspace().users = 0;
 
 
-function createRandomSuffix(size)
-{
-  var text = "";
-  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-  for(var i = 0; i < size; ++i) {
-    text += possible.charAt(Math.floor(Math.random() * possible.length));
-  }
-  return text;
-}
 
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/public/demo.html'));
