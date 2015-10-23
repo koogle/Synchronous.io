@@ -1,6 +1,12 @@
-# Synchronous.io <img src="https://raw.githubusercontent.com/koogle/Synchronous.io/master/demo/public/icon.png" width="80" alt="Synchronous Logo">
+# Synchronous.io 
+
+<img src="https://raw.githubusercontent.com/koogle/Synchronous.io/master/demo/public/icon.png" width="100" alt="Synchronous Logo">
+
 Shared JavaScript objects between client and server
 
+Idea by:           [Danijar Hafner](https://github.com/danijar)
+
+Implementation by: [Jakob Frick](https://github.com/koogle)
 
 ### Motivation
 Since **node.js** has become a popular backend for all sorts of web applications over the last couple of years developers are getting used to write their frontend and their backend in one language: _JavaScript_.
@@ -14,7 +20,7 @@ On the Server side:
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
-var Synchronous = require('./../index');
+var Synchronous = require('Synchronous.io');
 
 var syn = new Synchronous(app, http);
 ```
@@ -110,7 +116,7 @@ Via the `setNamespaceReadonly(name, readonly, silent)` and `setGlobalspaceReadon
 Server:
 ```javascript
 var sync = new Sync(app, http);
-sync.globalspace().testValue = 'Hallo';
+sync.globalspace().testValue = 'Hello';
 ```
 
 Client:
@@ -123,23 +129,23 @@ Client:
 Server:
 ```javascript
   console.log(syn.globalspace().testValue);
->>>'Hallo World'
+>>>'Hello World'
 ``` 
 Client:
 ```javascript
   console.log(syn.globalspace().testValue);
->>>'Hallo World'
+>>>'Hello World'
 ``` 
 (And of course for every furhter client ...)
 > Server:
 > ```javascript
   console.log(syn.globalspace().testValue);
->>>>'Hallo World World World ...'
+>>>>'Hello World World World ...'
 ``` 
 >Client:
 >```javascript
   console.log(syn.globalspace().testValue);
->>>>'Hallo World World World ...'
+>>>>'Hello World World World ...'
 ```
 
 ### Contribution
